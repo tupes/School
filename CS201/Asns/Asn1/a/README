@@ -1,0 +1,22 @@
+name:               Mark Tupala
+ONE Card number:    1188594
+Unix id:            tupala
+lecture section:    B1
+instructor's name:  Dr. Martin Muller
+lab section:        H02
+TA's name:          Aditya Bhargava
+
+Reads each line in a file given as an argument, tallies
+the number of times each type of line is identified, and
+prints the results on the screen.
+
+Compile by typing: 
+make
+ 
+Run by typing: 
+./draw1a ./input_file
+where "input_file" is the text file you wish to use.
+Ensure that draw1a and the input file are in your
+working directory.
+
+I did not collaborate with anyone.

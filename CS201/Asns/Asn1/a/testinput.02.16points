@@ -1,0 +1,32 @@
+# name:		      Mark Tupala
+# ONE Card number:    1188594
+# Unix id:            tupala
+# lecture section:    B1
+# instructor's name:  Dr. Martin Muller
+# lab section:        H02
+# TA's name:          Aditya Bhargava
+#
+# draw and print one matrix with 16 line segments
+Matrix A =
+10 10
+10 20
+20 20
+20 10
+30 10
+30 20
+40 20
+40 10
+50 10
+50 20
+40 30
+40 40
+30 40
+30 30
+20 30
+20 40
+End Matrix A
+# ##########################
+printMatrix A
+drawMatrix A
+send pause 2
+send end

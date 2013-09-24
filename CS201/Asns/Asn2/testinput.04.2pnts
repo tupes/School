@@ -1,0 +1,19 @@
+# name:		      Mark Tupala
+# ONE Card number:    1188594
+# Unix id:            tupala
+# lecture section:    B1
+# instructor's name:  Dr. Martin Muller
+# lab section:        H02
+# TA's name:          Aditya Bhargava
+# ############################
+Matrix A =
+# Matrix A (2 diagonal line segments)
+100 100
+200 200
+End Matrix A
+# ############################
+drawMatrix A
+printMatrix A
+send pause 2
+send clearScreen
+send end

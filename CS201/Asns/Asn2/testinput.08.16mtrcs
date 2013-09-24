@@ -1,0 +1,89 @@
+# name:		      Mark Tupala
+# ONE Card number:    1188594
+# Unix id:            tupala
+# lecture section:    B1
+# instructor's name:  Dr. Martin Muller
+# lab section:        H02
+# TA's name:          Aditya Bhargava
+#
+# draw and print 11 matrices
+Matrix A = 
+100 100
+200 200
+End Matrix A
+# ####################
+Matrix B =
+10 10
+20 20
+End Matrix B
+# ####################
+Matrix C = 
+100 100
+200 200
+End Matrix C
+# ####################
+Matrix D =
+10 10
+20 20
+End Matrix D
+# ####################
+Matrix E = 
+100 100
+200 200
+End Matrix E
+# ####################
+Matrix F =
+10 10
+20 20
+End Matrix F
+# ####################
+Matrix G = 
+100 100
+200 200
+End Matrix G
+# ####################
+Matrix H =
+10 10
+20 20
+End Matrix H
+# ####################
+Matrix I = 
+100 100
+200 200
+End Matrix I
+# ####################
+Matrix J =
+10 10
+20 20
+End Matrix J
+# ####################
+Matrix K = 
+100 100
+200 200
+End Matrix K
+# ####################
+printMatrix A
+printMatrix B
+printMatrix C
+printMatrix D
+printMatrix E
+printMatrix F
+printMatrix G
+printMatrix H
+printMatrix I
+printMatrix J
+printMatrix K
+# ####################
+drawMatrix A
+drawMatrix B
+drawMatrix C
+drawMatrix D
+drawMatrix E
+drawMatrix F
+drawMatrix G
+drawMatrix H
+drawMatrix I
+drawMatrix J
+drawMatrix K
+send pause 2
+send end

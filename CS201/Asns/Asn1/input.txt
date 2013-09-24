@@ -1,0 +1,29 @@
+# This is a comment
+Matrix A =
+# Matrix A (2 diagonal line segments)
+100 100
+200 200
+300 300
+End Matrix A
+# ############################
+Matrix B =
+# Matrix B (a square)
+10 400
+400 400
+400 10
+10 10
+10 400
+End Matrix B
+# ############################
+printMatrix A
+printMatrix B
+drawMatrix A
+drawMatrix B
+shift A 20 30
+drawMatrix A
+printMatrix A
+send pause 5
+send clearScreen
+# send end below is last line in input file
+# Each line is terminated by a newline character
+send end

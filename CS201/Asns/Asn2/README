@@ -1,0 +1,27 @@
+name:               Mark Tupala
+ONE Card number:    1188594
+Unix id:            tupala
+lecture section:    B1
+instructor's name:  Dr. Martin Muller
+lab section:        H02
+TA's name:          Aditya Bhargava
+
+Reads each line in a file given as an argument, identifies
+which of 9 types the line belongs to, and executes the
+appropriate action based on the line type.
+Some lines trigger a command to be sent through a pipe to 
+Sketchpad.jar, which must be in the working directory.
+
+Compile by typing: 
+make
+ 
+Run by typing: 
+./draw2 ./input_file
+where "input_file" is the text file you wish to use.
+Ensure that draw2 and the input file are in your
+working directory.
+
+Delete the executable and all .o files by typing:
+make clean
+
+I did not collaborate with anyone.

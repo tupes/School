@@ -1,0 +1,17 @@
+# name:		      Mark Tupala	
+# ONE Card number:    1188594
+# Unix id:            tupala
+# lecture section:    B1
+# instructor's name:  Dr. Martin Muller
+# lab section:        H02
+# TA's name:          Aditya Bhargava
+#
+# draw and print a figure with zero points
+Matrix A =
+# this matrix has no points
+End Matrix A
+# ########################
+printMatrix A
+drawMatrix A
+send pause 2
+send end
