@@ -1,0 +1,11 @@
+total 40K
+drwxr-xr-x 2 user user 4.0K 2011-01-13 13:59 Desktop
+drwxr-xr-x 3 user user 4.0K 2011-01-15 01:31 Documents
+drwxr-xr-x 3 user user 4.0K 2011-01-17 20:49 Downloads
+-rw-r--r-- 1 user user  179 2011-01-13 06:41 examples.desktop
+drwxr-xr-x 2 user user 4.0K 2011-01-13 06:44 Music
+drwxr-xr-x 2 user user 4.0K 2011-01-13 06:44 Pictures
+drwxr-xr-x 2 user user 4.0K 2011-01-13 06:44 Public
+drwxr-xr-x 2 user user 4.0K 2011-01-13 06:44 Templates
+drwxr-xr-x 2 user user 4.0K 2011-01-13 06:44 Videos
+drwxr-xr-x 3 user user 4.0K 2011-01-13 15:45 workspace
