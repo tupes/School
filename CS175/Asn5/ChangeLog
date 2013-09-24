@@ -1,0 +1,225 @@
+2011-11-29  gergel  <gergel@ualberta.ca>
+	* all: More bug fixes - Thanks, Stephanie.
+	* petstart: Updated version number to 1.2.2.
+	* pets.py: Fixed a parameter type (from earlier today - embarrassing...
+	This is good motivation to implement a proper testing framework to catch
+	silly bugs like this
+	* processor.py: Fixed a missing 'self' when process_event() is called
+	inside of process_queued_event()
+	* actions:py:
+		- Fixed variable passing value when ordering stock
+		- Inserted missing equal sign in the result assignment for a pet
+		failure.
+
+2011-11-29  gergel  <gergel@ualberta.ca>
+	* all: 
+		- Fixed bugs based on feedback from Mark Tupala. Thanks, Mark.
+		- Removed all __name__ == '__main__' sections from the modules. This
+		testing was dangerously incomplete and potentially misleading. A
+		proper set of tests needs to be created.
+	* READ ME:
+		- Updated the report output formatting.
+		- Added PetStart version number to head of the file.
+		- Updated the SaleAction description on how to handle a sale for more
+		stock than is in inventory.
+		- Updated report formatting.
+	* petstart.py: 
+		- corrected parameter in process_event_queue() from 'inventory' to
+		'myinventory'.
+		- updated version number to 1.2.1
+	* pets.py:
+		- imported errors module
+		- removed update_special_attribute(). Updating this attribute will now
+		need to be handled by __init__() constructor for each class. This
+		includes parsing the string which identifies the attribute name and
+		the value. It will use the <attribute name>=<value> format
+		- Revised new_pet_object() to correctly handle the special attribute
+		data as a parameter.
+		- Revised class Pet to have a 'stock_lost' parameter. Missed it
+		before, but it is needed for the reports.
+	* actions.py:
+		- Corrected the name of the SaleAction class.
+		- Fixed the comment examples for PetCare and PetLoss actions to correctly
+		include the action name.
+		- Wrapped the 'amount' value in a str() to fix a string concatenation
+		error in EndOfDay.do_action().
+		- Fixed sys.exc_info() call in OrderStockAction.do_action().
+		- In OrderStockAction.do_action() the amount of the order is type cast
+		to an int() to make sure inventory operations work correctly.
+	* inventory.py:
+		- write_off_stock() method added to handle accounting for pet losses
+		correctly. The inventory doesn't trigger actions, but any actions that
+		decrease inventory levels need to check to see if orders need to be
+		placed (trigger an OrderStock event). 
+
+2011-11-25  gergel  <gergel@ualberta.ca>
+	* README: 
+		- Revised the pet.py description to improve readability and clarity on
+		what is meant by pet 'class' and pet 'type'. 
+		- Removed friendliness attribute from the Fish requirements, and the
+		food_type attribute from Bird requirement.
+		- Added attrition rates for each pet class.
+	* action.py: Revised OrderStockAction to now receive a 'special'
+	attribute, which has to be resolved by calling
+	pets.update_special_attribute(). This ensures that the attributes unique
+	to each special pet class type has it's attribute tested. (Thanks, Aaron).
+	* pets.py: Added update_special_attribute(). This function updates the
+	unique attribute for each specific class of Pets. This is a bit of a
+	clunky solution but it will work for now.
+	* petstart.py: Updated version number to 1.1.0
+	* sampleinput.txt: Updated the OrderStock events to reflect updated
+	structure.
+
+2011-11-24  gergel  <gergel@ualberta.ca>
+	* all: 
+		- Final revision of directory structure revised to have all the files 
+		in the same directory. There is pathing issue that is taking too long 
+		to debug and isn't really required for this project.
+		- Added license text to each of the files. I will use the MIT license
+		for this assignment.
+	* actions.py: 
+		- Implemented EndOfDayAction class. This triggered a few revisions 
+		to the inventory and processor modules.
+		- Implemented ReceiveAction class. Done to test updating values within
+		inventory objects.
+	* inventory.py: 
+		- Added an iterator class, _InventoryIterator, to the Inventory class.
+		The iterator returns pet objects (the value for each key pair in the
+		inventory dictionary).
+		- Added __contains__() function to handle queries for items within the
+		inventory.
+		- Added order_stock() function. This updates a pet's on_order
+		attribute. The function assumes the pet type is already in the
+		database. This also triggered a small change to receive_stock(), as it
+		now decreases the on_order amount for the pet type. This might need to
+		be changed in the future if a ReturnPet action is added, but currently
+		the pet store does not take returns on pets.
+	* processor.py: Revised the processor engine to receive the inventory
+	object. This is used to pass the inventory to actions, which need the
+	inventory to complete their processes.
+		- Revised the processor engine to receive the inventory object. 
+		This is used to pass the inventory to actions, which need the
+		inventory to complete their processes.
+		- Added _process_action_events(). This is accommodate the action
+		result where multiple events might be returned by an action (such as
+		EndOfDay that can affect all the pets types in inventory). This caused
+		some minor changes to process_event()
+	* pets.py: 
+		- Added module function new_pet_object(). This is used to get an
+		appropriate pet object based on the pet class provided.
+		- Modified Pet class. Simplified it a bit by removing sku attribute
+		and shortened the parameters required to initialize the object. This
+		will most likely need to be revised in the future when something like
+		a SKU will be used as the key instead of the pet name (which is
+		currently how it's implemented for simplicity sake).
+	* petstart.py:
+		- updated to import the correct files
+		- corrected calls for exceptions to correctly look in errors.py
+		- added the inventory object and made sure it passed to the
+		event_processor
+		- added a call to the reports module to the display_stock_report()
+		function.
+		- added application version number
+	* reports.py:
+		- Added display_stock_report() function. This function will display
+		a basic inventory report: current stock levels, pets sold, pets
+		received, and pet deaths.
+	* sampleinput.txt: A small sample text file that contains a series of
+	events. This should be used for preliminary testing.
+
+2011-11-23  gergel  <gergel@ualberta.ca>
+	* actions.py: Created. Moved all action classes into a single file to
+	simplify code based for the assignment (to avoid the too many files and
+	hard-to-follow directory structure result). This results in removal of all
+	the related action files and the actions subdirectory.
+		- class Action(): modified to have more attributes to retain results
+		from completing the event. Specifically, the success of the action,
+		the data (which will be an amount for actions such as sale), a name
+		attribute to help with reporting and future logging.
+	* dispatcher.py: Lots of work:
+		- Renamed dispatcher.py to processor.py to better reflect what is
+		happening in the module. 
+		- Added process_queued_event() to handle events that could be 
+		triggered by an action.
+		- Modified process_event() to return the resulting action object. This
+		is done so that we can retain a list of completed actions. This is
+		only a good solution for a small set of data. Ideally in a next
+		iteration a better mechanism for handling completed actions should be
+		created.
+	* pets.py: Created. Motivated by the same reasoning given above for
+	actions.py. This also solves the odd problem of importing a module from a
+	parent directory, and then trying to run the file with the __main__
+	mechanism.
+	* petstart.py: Added basic application functionality:
+		- Added functionality to read from a file one event at a time. 
+		- Added check to see if there is any outstanding events queued in the
+		event processor's queue, and then handle them before moving on to the
+		next event in the input file.
+		- Process an event read from file.
+
+2011-11-22  gergel  <gergel@ualberta.ca>
+	* petstart project: Restructured the directory structure for the project.
+	It is now structure along the best practices for a python project.
+	Furthermore, the actions and pets now have their own subdirectories. This
+	should help keep things better organized.
+		- The project is now being managed in a CVS repository. Files such as
+		.cvsignore added to help manage the repository in a sensible fashion.
+	* README: Added.
+	* .cvsignore: Updated to ignore *.pyc compiled code files
+	* petstart.py: Structured the basic program flow.
+	* inventory.py: Created. This module will contain the store's inventory.
+	Implemented and tested. This is a very basic data structure to handle
+	inventory; it is just a dictionary with a couple of wrapper mutators that
+	represent inventory-type processes.
+	* dispatcher.py: Created. The event dispatcher for helping process store
+	events. Events trigger Actions, and this dispatcher handles this process.
+	process_event() and _execute_action() completed.
+	* errors.py: Created. Place to store error related code such as new
+	exceptions. Currently contains exception classes TimestampError and
+	InventoryError. Also added an EventError exception class.
+	* action.py: The constructor was simplified to just get a new action ID.
+	do_action() defined (but purposely left empty for this base class)
+	* endofday.py: Created. Contains the EndOfDayAction class.
+	* failedsale.py: Created. Contains the FailedSaleAction class.
+	* orderstock.py: Created. Contains the OrderStockAction class.
+	* petcare.py: Created. Contains the PetCareAction class.
+	* petloss.py: Created. Contains the PetLossAction class.
+	* receive.py: Created. Contains the ReceiveAction class.
+	* sale.py: Created. Contains the SaleAction class.
+
+2011-11-21  gergel  <gergel@ualberta.ca>
+	* pet.py: Cleaned up the properties. Specifically, removed all the
+	financial related properties as the first iteration will not require/cover
+	these types of concerns. This was done to simplify the project for the
+	first deliverable. Also removed code that specifically handled dealing
+	with time stamps. This concern will be moved to the code that processes
+	incoming data instead. There was also some cruft from the first pass that
+	still referenced datetime objects; this was correct or removed (depending
+	on the usage).
+	* action.py: Cleaned up and removed time stamp checking code. This
+	simplified the class methods significantly. As mentioned above, time stamp
+	evaluation will be handled by the code that processes incoming data before
+	it is passed off to code handling actions.
+	* timestamp.py: Minor clean up. Removed _is_valid_timestamp() as it is not
+	required.
+
+2011-11-20  gergel  <gergel@ualberta.ca>
+	* petstart project: Initial creation of the petstart project. The project
+	will be an assignment for CMPUT 175F11. Petstart is meant to represent a
+	first iteration implementation of pet store inventory management system.
+	The goal is to create a simulator that shows how the identified actions
+	interact and record the daily activities in a pet store. 
+	* pet.py: Created and first past design complete. This is a base class for
+	the different types of pets. Each pet type will need to have it's own
+	class defined.
+	* timestamp.py: Created to handle time stamps. This is basically a wrapper
+	class for datetime objects. This was done to simplify the interactions
+	needed for the petstart project.
+	* action.py: Created and first pass design complete. A base class for
+	business 'actions'. Each action needed by the application will inherit from
+	this class.
+	* petstart.py: Created. The execution entry point to the simulator.
+	* simulator.py: Created. The simulation-specific code will be contained
+	within this module.
+	* report.py: Created. This will contain code specific to generating
+	reports for the application.

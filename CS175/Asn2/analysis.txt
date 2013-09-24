@@ -1,0 +1,21 @@
+Mark Tupala
+1188594
+
+4.2
+a) The lower order terms are ignored, so this function is quadratic: O(n^2).
+b) This would be 70n, and the coefficients are ignored, so the function is linear: O(n).
+c) The lower order terms and the coefficient are ignored, so this function is log linear: O(nlogn).
+d) The lower order terms and the coefficient are ignored, so this function is quadratic: O(n^2).
+e) The lower order terms and the coefficient are ignored, so this function is exponential: O(a^n).
+f) The lower order term is ignored, so this function is linear: O(n).
+g) The lower order terms are ignored, so this function is log linear: O(nlogn).
+
+4.7
+a) Regardless of the input, the loop will be executed once for every element of n, 
+so the function is O(n) for the best and worst cases.
+
+b) Since i is divided by 2 on every iteration of the loop, which happens 
+regardless of the type of input, this function is O(logn) for the best and worst cases.
+
+c) Regardless of the type of input, this function would be n * (1/3n + 1/6n + 1/3). 
+Because lower order terms and constants are ignored, this function is O(n^2) for the best and worst cases.

@@ -1,0 +1,194 @@
+PetStart
+--------
+
+Current Version: v1.2.0
+
+The project for assignment 5 in CMPUT 175 Fall 2011 is finish developing a 
+small prototype inventory management application. The goal of this iteration
+of the software is implement a basic working version that allows for the 
+process of a small set of process. A lot of the gritty details, like costs,
+SKU values, etc. are omitted for this iteration. Parts of the application are
+still incomplete and they are the deliverables for the assignment. They are 
+listed below in the section labelled 'deliverables'.
+
+Project Structure
+-----------------
+The project is composed of the following files:
+
+- actions.py: contains the action classes. Each action represents the business
+    process need to process it's associated event. There is a base Action 
+    class that each action class needs to inherit. The actions covered in this
+    iteration are:
+	- EndOfDay (provided)
+	- Receive
+	- Sale
+	- PetCare
+	- PetLoss
+	- OrderStock (provided)
+    
+    Some actions can trigger further events. For example, the EndOfDay action
+    can trigger PetLoss events.
+
+- errors.py: contains the exception classes used in the PetStart application.
+
+- inventory.py: an basic inventory module. This is the data structure used to
+    store the pet objects.
+
+- pets.py: contains the pet classes. Pet classes represent a general group
+    categorization for pets. There is a base class called 'Pet' from which each 
+    pet class (i.e. fish, cats, etc.) must inherit. The pet classes will be
+    quite primitive for this first iteration, but having each pet class
+    differentiated by an unique class is important for the project (if we were
+    going to do more iterations - remember this is a simulated project and this
+    assignment is just the first step in what would normally be many). Each pet
+    class is used to contain each different pet type (or species).
+
+- petstart.py: The execution entry point for PetStart. It reads a text file
+    in that provides the events, which are then processed. Finally a report
+    is presented to the user that shows the state of the pet store's inventory
+    after all the events are processed. The motivation for this approach in
+    this iteration is to test to test the process engine.
+
+- processor.py: contains the processing engine for PetStart. Basically, 
+    the input file contains a unique line that describes an 'event' in a
+    specific format. Using this the EventProcessor uses the event to complete
+    the appropriate 'action'. This is currently structured to handle only the
+    basic actions defined above. The process engine handles events that are
+    supplied to the engine as well as events that are triggered in an action. 
+    The action-triggered events are stored in a queue and process in FIFO 
+    order before another event is processed.
+
+- reports.py: contains the functions required to generate text reports for
+    PetStart's users. 
+
+- timestamp.py: a wrapper class for the Python datetime module. This was done
+    to simply and standardize the way PetStart uses a time stamp. PetStart 
+    uses the ISO-8601 format (but with out the microseconds shown). A typical
+    PetStart time stamp looks like this: "2011-11-24T17:43:23". All time stamps
+    must follow this format in PetStart, or a TimestampError will be thrown.
+
+- sampleinput.txt: A small sample input file to test the PetStart system.
+
+
+To Run PetStart
+---------------
+
+To run PetStart:
+	python3 petstart.py <input file>
+
+Make sure to run the correct version of Python. You might need to simply 
+type 'python' instead of 'python3' if python3 is the default on your system.
+
+
+Assignment Deliverables
+-----------------------
+The following pieces of the PetStart project need to be completed:
+
+- Complete the following actions:
+
+	- PetCareAction: This action is used to update the _last_petcare
+	attribute of a pet object. This is used to capture when staff have
+	fed, clean cages, etc. for a pet.
+
+	- PetLossAction: This action is used to adjust the inventory when 
+	pets die. It is a triggered event can occur when an EndofDay event
+	is processed.
+
+	- ReceiveAction: This action updates the stock totals for a specific
+	pet type (i.e. goldfish). It needs to update the 'count' and 
+	'stock_received' attributes for the pet object.
+
+	- SaleAction: This action updates the 'count' and 'stock_sold'
+	attributes of a pet object. Furthermore, if the stock becomes zero
+	because of the sale event, then an OrderStock event should be triggered
+	to order 50 replacement pets.
+    	CLARIFICATION: If an order is placed that is for more stock than is 
+    	currently available, reduce the stock to zero and trigger an OrderStock
+    	event for the default amount given above. If there is no stock for a
+ 	sale, make sure to raise an error as the event can not be completed.
+
+- The pet classes are incomplete and need to be finished:
+	
+	- Fish: Add the following attributes, which should be set during
+	object initialization:
+		- water_type: set to either 'salt' or 'fresh'
+		- attrition_rate = 0.10
+
+	- Rodent: Add the following attributes:
+		- bedding_type: set to 'wood chips' or 'other'
+		- attrition_rate = 0.05
+
+	- Bird: Add the following attributes:
+		- cage_type: set to either 'open' or 'closed'. Some birds do
+		not require a closed cage, while others do.
+		- attrition_rate = 0.02
+
+- The report module:
+	- create a report that prints out to the screen with the following
+	data:
+		
+		- Display the current inventory in the store. The pet types
+		(i.e. goldfish) do not need to be in alphabetical order, but
+		they must be grouped in their class types (i.e. goldfish in 
+		Fish group).
+		
+		- Display the stock received. Use the same formatting as above.
+	
+		- Display the stock sold also using the same formatting.
+
+		- Finally, display the losses using the same formatting.
+
+
+Sample Report Output
+--------------------
+
+Petstart Report
+Current Stock
+    Birds
+	    Parakeet	15
+	    Cockatiel	4
+
+    Fish
+        Goldfish	200
+	    Angelfish	42
+
+    Rodents
+	    Hamsters	35
+	    Rabbits	12
+
+
+Stock Received
+    Birds
+	    Parakeet	25
+	    Cockatiel	7
+
+    Fish
+	    Goldfish	325
+	    Angelfish	60
+	
+    Rodents
+	    Hamsters	50
+	    Rabbits	20
+
+Stock Sold
+    Birds
+	    Parakeet	8
+	    Cockatiel	2
+    Fish
+	    Goldfish	100
+	    Angelfish	10
+    Rodents
+	    Hamsters	10
+	    Rabbits	8
+
+Pet Losses
+    Birds
+	    Parakeet	2
+	    Cockatiel	1
+    Fish
+	    Goldfish	25
+	    Angelfish	8
+    Rodents
+	    Hamsters	5
+	    Rabbits	0
+    

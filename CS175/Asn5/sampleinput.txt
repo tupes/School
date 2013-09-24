@@ -1,0 +1,18 @@
+2011-11-20T20:23:32|OrderStock|Fish|Goldfish|water=fresh|200
+2011-11-20T20:25:00|OrderStock|Fish|Angelfish|water=fresh|20
+2011-11-20T23:59:59|EndOfDay
+2011-11-21T18:29:02|OrderStock|Rodent|Hamster|bedding=wood chips|30
+2011-11-21T23:59:59|EndOfDay
+2011-11-22T05:32:53|Receive|Goldfish|200
+2011-11-22T05:32:53|Receive|Angelfish|20
+2011-11-22T05:32:53|Receive|Hamster|30
+2011-11-22T09:00:00|PetCare|Hamster
+2011-11-22T09:15:00|PetCare|Angelfish
+2011-11-22T09:30:00|PetCare|Goldfish
+2011-11-22T12:00:13|Sale|Goldfish|10
+2011-11-22T23:59:59|EndOfDay
+2011-11-23T14:00:00|Sale|Hamster|30
+2011-11-23T09:00:00|PetCare|Hamster
+2011-11-23T09:15:00|PetCare|Angelfish
+2011-11-23T09:30:00|PetCare|Goldfish
+2011-11-23T23:59:59|EndOfDay

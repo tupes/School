@@ -1,0 +1,51 @@
+3 4 +
+3 4 -
+3 4 *
+3 4 /
+-3 4 /
+-3 4 +
+-3 4 -
+-3 4 *
+3 -4 +
+3 -4 -
+3 -4 *
+3 -4 /
+-3 -4 /
+-3 -4 +
+-3 -4 -
+-3 -4 *
+3 4 div
+3 4 mod
+4 3 div
+4 3 mod
+-3 4 div
+-4 3 div
+3 -4 div
+4 -3 div
+-3 -4 div
+-4 -3 div
+2 chs
+-2 chs
+2.5 chs
+-2.5 chs
+2.3 int
+-2.3 int
+1 2 3 sum
+sum
+1 2 3 4 0 print
+1 0 /
+1 0 mod
+1 0 div
+1 +
+1 -
+1 *
+1 /
+1 div
+1 mod
+chs
+int
+-3 4 mod
+-4 3 mod
+3.5 2 mod
+2 3.5 mod
+quit
