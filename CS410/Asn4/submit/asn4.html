@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<meta title="CMPUT 410 Assignment 4">
+	</head>
+	<body>
+		
+		<h1>View the products of the week</h1>
+		Enter XML file URL:<br>
+		
+		<form action="/cgi-bin/results.php" onSubmit='
+				<script type="text/javascript">
+					return encodeURI(document.getElementById("url").value);
+				</script>'>
+		
+			<input type="text" id="url" name="url">
+			<input type="submit">
+		</form>
+	
+	</body>
+</html>

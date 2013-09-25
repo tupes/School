@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+	<head>
+		<title>410 Asn 2</title>
+		<link rel="STYLESHEET" href="style.css" type="text/CSS">
+		<meta name="author" Content="Mark Tupala">
+	</head>
+
+	<body id='body' onLoad="init()">
+		
+		<ul class="tabs">
+			<li><a href="quiz1.html">Neuroscience</a></li>
+			<li><a href="quiz2.html">Philosophy</a></li>
+			<li id='selected'>Physics</li>
+		</ul>
+			
+		<h1>Physics Quiz</h1>
+		
+		<p>Physics Quiz for <span id='username'></span></p>
+		
+		<p id="timer">Timer: <span id="examElapsed">0</span> Seconds.</p>
+		<p id="questionTimer0">Question 1 Timer: <span id="questionElapsed0">0</span> Seconds.</p>
+		<p id="questionTimer1">Question 2 Timer: <span id="questionElapsed1">0</span> Seconds.</p>
+		<p id="questionTimer2">Question 3 Timer: <span id="questionElapsed2">0</span> Seconds.</p>
+		<p id="questionNumber">Question: <span id="question">1</span> / 3</p>
+		<p id="progress">Progress: <span id="answered">0</span> / 3</p>
+		
+		<div id="container">
+			<div id="progress-bar">
+			</div>
+		</div>
+		
+		<p>Directions: Closed book, no talking, and one hour.</p>
+		
+		<form id='buttons'>
+			<input type="button" id="prev" value="prev">
+			<input type="button" id="next" value="next">
+			<input type="button" id="submit" value="submit">
+		</form>
+
+		<UL id="questions">
+		
+			<LI id='P1' class="question">1. Which one of these particles is a lepton?
+				<form id="question1">
+					<input type='radio' name="Q1" value="no"/> Proton
+					<input type='radio' name="Q1" value="no"/> Neutron
+					<input type='radio' name="Q1" value="no"/> Electron
+					<input type='radio' name="Q1" value="no"/> Photon
+				</form>
+			</LI>
+			
+			<LI id='P2' class="question">2. Einstein's general theory of relativity is an explanation of which force?
+				<form id="question2">
+					<input type='radio' name="Q2" value="no"/> Gravity
+					<input type='radio' name="Q2" value="no"/> Electromagnetism
+					<input type='radio' name="Q2" value="no"/> Weak Nuclear
+					<input type='radio' name="Q2" value="no"/> Strong Nuclear
+				</form>
+			</LI>
+			
+			<LI id='P3' class="question">3. Which of these observations is not considered to be evidence for the Big Bang theory?
+				<form id="question3">
+					<input type='radio' name="Q3" value="no"/> Cosmic background radiation
+					<input type='radio' name="Q3" value="no"/> Black holes
+					<input type='radio' name="Q3" value="no"/> Doppler shift of other galaxies
+					<input type='radio' name="Q3" value="no"/> Abundance of hydrogen and helium
+				</form>
+			</LI>
+			
+			<LI id='P4'>
+				<h2>Results for <span id='username2'></span>:</h2>
+				Q1: correct, <span id="q1Time"></span> seconds<br>
+				Q2: correct, <span id="q2Time"></span> seconds<br>
+				Q3: incorrect, <span id="q3Time"></span> seconds<br>
+				Total Score: 66%<br>
+				Time Taken: <span id="examTime"></span> seconds
+			</LI>
+			
+		</UL>
+
+		<p><a href="signedOut.html">Sign Out</a></p>
+
+	<script type='text/javascript' src='quiz.js'></script>
+
+	</body>
+	
+</html>

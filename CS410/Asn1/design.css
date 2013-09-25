@@ -1,0 +1,98 @@
+
+body
+{
+	background-color:blue;
+}
+
+ul.tabs {
+  list-style-type: none;
+  padding: 0px;
+  margin-left: 110px;
+  margin-bottom: 0px;
+}
+
+ul.tabs li {
+  background-color:grey;
+  float: left;
+  padding: 0;
+  margin: 0;
+  padding-top: 0;
+  margin-right: 1px;
+  margin-bottom: 0px;
+  border-style: none;
+}
+
+ul.tabs li a {
+  display: block;
+  padding: 0px 10px;
+  color: #fff;
+  text-decoration: none;
+}
+
+ul.tabs li a:hover {
+  color: #ff0;
+}
+
+#selected {
+	background-color:green;
+}
+
+#title
+{
+	background-color:green;
+	margin-left:100px;
+	margin-right:100px;
+	margin-top: 1px;
+	margin-bottom: 0px;
+	padding-top: 20px;
+}
+
+h1
+{
+	margin: 0px;
+	padding: 10px 0px;
+}
+
+p
+{
+	margin: 0px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+}
+
+#container
+{
+	background-color:grey;
+	margin-top:0;
+	margin-left:100px;
+	margin-right:100px;
+	margin-bottom:0px;
+	/*padding-top:1px;
+	/*padding-left:20px;
+	padding-right:20px;*/
+	padding-bottom:10px;
+}
+
+#questions
+{
+	/*background-color:white;*/
+	margin-left:50px;
+	margin-right:50px;
+	margin-bottom:50px;
+}
+
+ul
+{
+	list-style-type: none;
+	margin: 0px;
+}
+
+ul li
+{
+	background-color:white;
+	border-style:solid;
+	padding-top: 10px;
+	padding-bottom:5px;
+	margin-bottom:5px;
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+	<head>
+		<title>410 Asn 2</title>
+		<link rel="STYLESHEET" href="style.css" type="text/CSS">
+		<meta name="author" Content="Mark Tupala">
+	</head>
+
+	<body id='body' onLoad="init()">
+		
+		<ul class="tabs">
+			<li id="selected">Neuroscience</li>
+			<li><a href="quiz2.html">Philosophy</a></li>
+			<li><a href="quiz3.html">Physics</a></li>
+		</ul>
+			
+		<h1>Neuroscience Quiz</h1>
+		
+		<p>Neuroscience Quiz for <span id='username'></span></p>
+		
+		<p id="timer">Timer: <span id="examElapsed">0</span> Seconds.</p>
+		<p id="questionTimer0">Question 1 Timer: <span id="questionElapsed0">0</span> Seconds.</p>
+		<p id="questionTimer1">Question 2 Timer: <span id="questionElapsed1">0</span> Seconds.</p>
+		<p id="questionTimer2">Question 3 Timer: <span id="questionElapsed2">0</span> Seconds.</p>
+		<p id="questionNumber">Question: <span id="question">1</span> / 3</p>
+		<p id="progress">Progress: <span id="answered">0</span> / 3</p>
+		
+		<div id="container">
+			<div id="progress-bar">
+			</div>
+		</div>
+		
+		<p>Directions: Closed book, no talking, and one hour.</p>
+		
+		<form id='buttons'>
+			<input type="button" id="prev" value="prev">
+			<input type="button" id="next" value="next">
+			<input type="button" id="submit" value="submit">
+		</form>
+
+		<UL id="questions">
+		
+			<LI id='P1' class="question">1. Which lobe of the cortex is most responsible for visual processing?
+				<form id="question1">
+					<input type='radio' name="Q1" value="no"/> Temporal
+					<input type='radio' name="Q1" value="no"/> Occipital
+					<input type='radio' name="Q1" value="no"/> Frontal
+					<input type='radio' name="Q1" value="no"/> Parietal
+				</form>
+			</LI>
+			
+			<LI id='P2' class="question">2. Which one of these drugs is primarily a dopamine agonist?
+				<form id="question2">
+					<input type='radio' name="Q2" value="no"/> Heroin
+					<input type='radio' name="Q2" value="no"/> Marijuana
+					<input type='radio' name="Q2" value="no"/> Cocaine
+					<input type='radio' name="Q2" value="no"/> Alcohol
+				</form>
+			</LI>
+			
+			<LI id='P3' class="question">3. What type of memory is the medial temporal lobe thought to be primarily responsible for?
+				<form id="question3">
+					<input type='radio' name="Q3" value="no"/> Creating new declarative memories
+					<input type='radio' name="Q3" value="no"/> Retaining old declarative memories
+					<input type='radio' name="Q3" value="no"/> Creating new procedural memories
+					<input type='radio' name="Q3" value="no"/> Retaining old procedural memories
+				</form>
+			</LI>
+			
+			<LI id='P4'>
+				<h2>Results for <span id='username2'></span>:</h2>
+				Q1: correct, <span id="q1Time"></span> seconds<br>
+				Q2: correct, <span id="q2Time"></span> seconds<br>
+				Q3: incorrect, <span id="q3Time"></span> seconds<br>
+				Total Score: 66%<br>
+				Time Taken: <span id="examTime"></span> seconds
+			</LI>
+			
+		</UL>
+
+		<p><a href="signedOut.html">Sign Out</a></p>
+
+	<script type='text/javascript' src='quiz.js'></script>
+
+	</body>
+	
+</html>

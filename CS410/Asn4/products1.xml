@@ -1,0 +1,43 @@
+<catalog>
+<title>Ranges of the week</title>
+<product>
+<ID>rf1298</ID>
+<Name>Whirlpool</Name>
+<specs>Stainless 5.3 Cu. Ft.</specs>
+<price>1000</price>
+<quantity>9</quantity>
+<image>
+http://ugweb.cs.ualberta.ca/~c410/W10/410/work/img/range1.jpg
+</image>
+</product>
+<product>
+<ID>rf1254</ID>
+<Name>KitchenAid</Name>
+<specs>Stainless 4.1 Cu. Ft.</specs>
+<price>2600</price>
+<quantity>3</quantity>
+<image>
+http://ugweb.cs.ualberta.ca/~c410/W10/410/work/img/range2.jpg
+</image>
+</product>
+<product>
+<ID>rf3234</ID>
+<Name>Samsung</Name>
+<specs>Stainless 5.7 Cu. Ft.</specs>
+<price>1400</price>
+<quantity>5</quantity>
+<image>
+http://ugweb.cs.ualberta.ca/~c410/W10/410/work/img/range3.jpg
+</image>
+</product>
+<product>
+<ID>rf2541</ID>
+<Name>LG</Name>
+<specs>Stainless 5.6 Cu. Ft.</specs>
+<price>1400</price>
+<quantity>9</quantity>
+<image>
+http://ugweb.cs.ualberta.ca/~c410/W10/410/work/img/range4.jpg
+</image>
+</product>
+</catalog>

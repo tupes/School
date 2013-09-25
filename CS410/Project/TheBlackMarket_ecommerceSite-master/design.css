@@ -1,0 +1,58 @@
+body {
+    background-color: Yellow;
+    margin: 0;
+    padding: 0;
+}
+
+
+#page {
+    margin-top: 30px;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+    background-color: Green;
+    height: 100%;
+}
+
+#leftcolumn {
+    background-color: Red;
+    float: left;
+    width: 15%;
+    height: 100%;
+}
+
+#contentwrapper {
+    width: 85%;
+    float: right;
+    background-color: Purple;
+}
+
+#middlecolumn {
+    float: left;
+    background-color: Green;
+    width: 80%;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+}
+
+#rightcolumn {
+    float: right;
+    background-color: Yellow;
+    width: 20%;
+    height: 100%;
+}
+
+#footer {
+    background-color: Black;
+    color: White;
+    text-align: center;
+}
+
+.hidden {
+	display:none;
+}
+
+.visible {
+	/* display is defaulted */
+}

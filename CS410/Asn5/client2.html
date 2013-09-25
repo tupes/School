@@ -1,0 +1,60 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta title="CMPUT 410 Assignment 5" http-equiv="content-type" content="text/html;charset=utf-8"/>
+
+	<script src="jquery.js"></script>
+	<script type="text/javascript">
+		
+		function addItem() {
+			var object = getObject();
+			reset();
+			alert("Added " + object.name + " to the store");
+		}
+	
+		function getObject() {
+			return {
+				"name": getValue("name"),
+				"desc": getValue("desc"),
+				"price": getValue("price")
+			}
+		}
+	
+		function getValue(id) {
+			return document.getElementById(id).value;
+		}
+	
+		function reset() {
+			resetValue("name");
+			resetValue("price");
+			resetValue("desc");
+		}
+		
+		function resetValue(id) {
+			document.getElementById(id).value = "";
+		}
+	
+		function getItems() {
+			$.ajax({
+				url: "/cgi-bin/fruit_store.php"
+		}
+	</script>
+
+</head>
+<body>
+
+	<h1>Fruit Store</h1>
+	Welcome to my fruit store! What can I help you with?
+	
+	<div>
+		Name: <input type="text" id="name"><br>
+		Price: <input type="text" id="price"><br>
+		Description: <input type="text" id="desc"><br>
+		<input type="button" value="Add Item" onClick="addItem()">
+	</div>
+
+	<input type="button" value="Get Catalogue" onClick="getItems()">
+
+</body>
+</html>

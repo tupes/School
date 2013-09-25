@@ -1,0 +1,92 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta title="CMPUT 410 Assignment 5" http-equiv="content-type" content="text/html;charset=utf-8"/>
+
+	<script src="jquery.js"></script>
+	<script type="text/javascript">
+		
+		function addItem() {
+			var object = getObject();
+			sendData(object);
+			return false;
+		}
+	
+		function getObject() {
+			return JSON.stringify({
+				"name": document.getElementById("name").value,
+				"desc": document.getElementById("desc").value,
+				"price": document.getElementById("price").value
+			});
+		}
+	
+		function sendData(object) {
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", "/cgi-bin/fruit_store.php", true);
+			xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+			xhr.send(object);
+			xhr.onloadend = function () {
+				reset();
+				alert("Added " + object.name + " to the store");
+			};
+		}
+	
+		function reset() {
+			document.getElementById("name").value = "";
+			document.getElementById("price").value = "";
+			document.getElementById("desc").value = "";
+		}
+		
+		// Called when the user presses the 'Get Catalogue' button
+		function getItems() {
+			$.ajax({
+				url: "/cgi-bin/fruit_store.php",
+				dataType: "json",
+				
+				success: function(fruits) {
+					$("#products").html("<h2>Products</h2>");
+					$.each(fruits, function(index, fruit) {
+						$("#products").append(
+							"<div id=product" + index + ">"
+							+ "<input type='button' value='Get Desc' onClick='getItem("+index+")'>" 
+							+ fruit.name + "<br></div>");
+					});
+				},
+			});
+		}
+		
+		// Called when the user presses the 'Get Desc' button for a particular fruit
+		function getItem(index) {
+			$.ajax({
+				url: "/cgi-bin/fruit_store.php",
+				dataType: "json",
+				data: "id="+index,
+				
+				success: function(fruit) {
+					$("#product"+index).append(fruit.desc + " " + fruit.price);
+				},
+			});
+		}
+		
+	</script>
+
+</head>
+<body>
+
+	<h1>Fruit Store</h1>
+	Welcome to my fruit store! What can I help you with?
+	
+	<form action="/cgi-bin/fruit_store.php" method="POST" onSubmit="return addItem()">
+		Name: <input type="text" id="name" name="name"><br>
+		Price: <input type="text" id="price" name="price"><br>
+		Description: <input type="text" id="desc" name="desc"><br>
+		<input type="submit" value="Add Item" name="submit">
+	</form>
+
+	<input type="button" value="Get Catalogue" onClick="getItems()">
+	
+	<div id="products"></div>
+
+</body>
+</html>
