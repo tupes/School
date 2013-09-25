@@ -1,0 +1,47 @@
+To compile the server emulator, I followed the guide at __, which I have copied and 
+pasted here (omitting irrelevant information):
+
+
+
+Unfortunately, I found that I could only compile it on Ubuntu 11.10 32bit.
+Using 12.10 will compile all of the executables except for the LoginServer, and using
+64bit will result in multiple compilation errors (which were fairly easy to fix, but
+from what I've heard the emulator doesn't run on it very well, so I don't recommend it).
+
+For the EverQuest client, I'm not sure how you want to do this. Either I can lend you
+my client to install (must be on Windows), or we can arrange a meeting where I
+bring my laptop with EverQuest installed and you can connect to the server that you've
+compiled with this code.
+
+For evaluating my code, go to the eqemu/source/EQEmulator/zone directory.
+As mentioned in the report, you can use grep (or whatever
+you prefer) to find my contributions by searching for "#ifdef TUPES_AI".
+The majority of my code is in npc.cpp (and the corresponding npc.h), with some
+in MobAI.cpp. 
+Although the total amount of my code is not large, please keep in mind the amount
+of time and work that went in to reading the (mostly undocumented) existing source 
+code, in order to figure out exactly where to insert my code and which functions to use.
+
+*** Optional ***
+One thing to keep in mind is that my new AI code is only for animal NPCs. This means
+that if you keep the database as is, there will some animals controlled by my code
+intermixed with a bunch of NPCs controlled by the (dumb) existing AI code.
+This can be interesting, but if you want to just have my AI controlled NPCs, you can
+execute the following SQL statement to the MySQL database:
+DELETE FROM npc_types WHERE bodytype <> 21
+
+*** Becoming a GM and using GM commands ***
+For evaluating the animal AI, it might be useful for you to raise your status
+in the accounts table in the database. By setting your status to 250, you can use
+GM commands by hitting enter (which allows you to write in the message box area)
+and then entering in the command. Some of the most useful commands for me have
+been:
+
+#invulnerable on	// so you don't have to worry about dying
+#zone southkarana	// takes you to a zone with lots of animals, other possibilites
+				// include northkarana, westkarana, and eastkarana
+#gmspeed on		// for moving VERY fast (not realistic if testing user experience)
+#time 12			// for when it's dark, this will make it noon
+#kill				// for killing the targeted NPC
+#heal			// for healing the targeted NPC
+#size <some_int>	// for changing the size of target, normal values are around 3-10

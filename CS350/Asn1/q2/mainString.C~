@@ -1,0 +1,9 @@
+#include "String.H"
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  String s("aaa"), t("bbbb");  // construct
+  cout << "Finished";
+}

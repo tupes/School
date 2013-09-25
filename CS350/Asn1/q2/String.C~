@@ -1,0 +1,13 @@
+
+#include <stdio.h>
+#include "String.H"
+
+
+String::String(const char *p) {
+	
+}
+
+int String::size() const {
+	puts("This is only a test");
+	return 0;
+}
