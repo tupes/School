@@ -1,0 +1,21 @@
+
+Winner:28422.84, 155.172289657
+Number tilings:4
+Tile size:9
+alpha:0.05
+epsilon:0.0
+lambda:0.9
+
+Winner:28363.3, 126.878377406
+Number tilings:4
+Tile size:9
+alpha:0.05
+epsilon:0.0
+lambda:0.9
+
+Winner:28482.7, 118.220831929
+Number tilings:4
+Tile size:9
+alpha:0.05
+epsilon:0.0
+lambda:0.9

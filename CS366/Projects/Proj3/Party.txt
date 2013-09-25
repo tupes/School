@@ -1,0 +1,107 @@
+s = RU_8p 
+a = P
+return TU_10p
+a = R
+return RU_10p
+a = S
+return RD_10p
+
+s = TU_10p 
+a = P
+return RU_10a
+a = R
+return RU_8a
+
+s = RU_10p 
+a = P 
+0.5
+return RU_8a
+0.5
+return RU_10a
+a = R
+return RU_8a
+a = S
+return RD_8a
+
+s = RD_10p 
+a = P 
+0.5
+return RD_8a
+0.5
+return RD_10a
+a = R
+return RD_8a
+
+s = RU_8a 
+a = P
+return TU_10a
+a = R
+return RU_10a
+a = S
+return RD_10a
+
+s = RD_8a 
+a = P
+return TD_10a
+a = R
+return RD_10a
+
+s = TU_10a || s = RU_10a || s = RD_10a || s = TD_10a 
+return TERMINAL_STATE
+
+# rewards
+ 
+s = RU_8p 
+a = P
+return 2
+a = R
+return 0
+a = S
+return -1
+
+s = TU_10p 
+a = P
+return 2
+a = R
+return 0
+
+s = RU_10p 
+a = P 
+return 2
+a = R
+return 0
+a = S
+return -1
+
+s = RD_10p 
+a = P 
+return 2
+a = R
+return 0
+
+s = RU_8a 
+a = P
+return 2
+a = R
+return 0
+a = S
+return -1
+
+s = RD_8a 
+a = P
+return 2
+a = R
+return 0
+
+s = TU_10a
+return -1
+
+s = RU_10a
+return 0
+
+s = RD_10a
+return 4
+
+s = TD_10a
+return 3
+
